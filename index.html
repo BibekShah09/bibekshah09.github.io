@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibek Shah - Product Development Software Consultant</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gradient-text {
+            background: linear-gradient(45deg, #3B82F6, #10B981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-hover {
+            transition: transform 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+        }
+        .section-bg {
+            background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
+        }
+        .timeline-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom color classes */
+        .bg-orange-100 {
+            background-color: #fff7ed;
+        }
+        .text-orange-600 {
+            color: #ea580c;
+        }
+        .bg-red-100 {
+            background-color: #fee2e2;
+        }
+        .text-red-600 {
+            color: #dc2626;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-code text-blue-600 text-xl"></i>
+                        </div>
+                        <h1 class="text-xl font-bold gradient-text">Bibek Shah</h1>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#about" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md transition-colors">About</a>
+                        <a href="#services" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md transition-colors">Key Achievements</a>
+                        <a href="#expertise" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md transition-colors">Expertise</a>
+                        <a href="#experience" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md transition-colors">Experience</a>
+                        <a href="#blogs" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md transition-colors">Blogs</a>
+                        <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-40 pb-20 section-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold text-gray-900 sm:text-6xl md:text-7xl mb-6">
+                    Bibek Shah
+                </h1>
+                <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-600 sm:mt-5 sm:text-2xl">
+                    Product Development | Software Architecture | Consultation
+                </p>
+                <div class="mt-6 text-gray-600">
+                    <p class="flex items-center justify-center space-x-4">
+                        <span class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-600"></i>
+                            Kathmandu, Nepal
+                        </span>
+                        <span class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-blue-600"></i>
+                            <a href="mailto:bibekshah09@gmail.com" class="text-blue-600 hover:text-blue-800">bibekshah09@gmail.com</a>
+                        </span>
+                        <span class="flex items-center">
+                            <i class="fab fa-whatsapp mr-2 text-green-600"></i>
+                            <a href="https://wa.me/9779766552811" target="_blank" class="text-blue-600 hover:text-blue-800">+977-9766552811</a>
+                        </span>
+                        <span class="flex items-center">
+                            <i class="fab fa-linkedin mr-2 text-blue-600"></i>
+                            <a href="https://www.linkedin.com/in/bibek-shah/" target="_blank" class="text-blue-600 hover:text-blue-800">LinkedIn</a>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">About Me</h2>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        A seasoned software professional with 10+ years of experience in developing and scaling global software products. Expert in strategic planning, execution, delivery, research, creating and operating high performing teams.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-900">Engineering Leadership</h3>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-900">Software System Architecture</h3>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-900">Team & Talent Strategy</h3>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-900">Project Management</h3>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-900">Research & Development</h3>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-900">Vision & Business Alignment</h3>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-900">Product Development and Delivery</h3>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-900">Scalability & Performance</h3>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-900">Security & Compliance</h3>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-900">Customer Experience & Engagement</h3>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-900">Operation Optimization & Efficiency</h3>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-900">Software Engineering & DevOps</h3>
+                        </div>
+                    </div>
+                    <div class="mt-6 grid grid-cols-2 gap-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-blue-900">Experience</h3>
+                            <p class="text-blue-600">10+ Years</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-blue-900">Projects</h3>
+                            <p class="text-blue-600">50+ Completed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative order-1 lg:order-2">
+                    <div class="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden">
+                        <img src="https://media.licdn.com/dms/image/v2/C5603AQGBaDwFF7hoMg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1663423779017?e=1749081600&v=beta&t=AkjVfuD7CQ_PF-cBXYw-Zt74R5rgMXQOHGRQjFaHXaE" alt="Bibek Shah" class="object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 section-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Key Achievements</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Product Impact & Growth</h3>
+                    <p class="text-gray-600">Leveraged extensive experience in developing and scaling multiple large scale software products across diverse domains—including Finance, Sales, Supply Chain, Marketplaces, B2B, D2C, Logistics, and Billing—serving over 500K users and driving multimillion-dollar revenue growth.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Talent & Team Building</h3>
+                    <p class="text-gray-600">With hands-on experience scaling teams from 1 to 50+ across multiple companies, I've successfully built and mentored cross-functional teams in Engineering, Design, HR, and Operations. I've conducted 500+ interviews, leading efforts in hiring, mentoring, and grooming talent.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-project-diagram text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Expertise in Startups & Scale-Ups</h3>
+                    <p class="text-gray-600">Having worked extensively in both startups and scale-ups, I have navigated every stage of business growth—from coding to management. I specialize in fostering cross-department collaboration, working closely with teams across Sales, Marketing, Operations, and HR to deliver enterprise-grade solutions that drive scalable success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Expertise</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Technical Expertise -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Technical Expertise</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">JavaScript</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">NodeJS</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">C++</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Python</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Java</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">PHP</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">React JS</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">Next JS</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">React Native</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">AI/ML</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">DevOps</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">AWS</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">MicroServices</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">RDBMS</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">NOSQL</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Big Query</span>
+                    </div>
+                </div>
+                
+                <!-- Other Expertise -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Professional Expertise</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Strategic Thinking</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Leadership</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Communication</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">Product Management</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">Project Management</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">Hiring & Mentoring</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Process Improvement</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Stakeholder Management</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Agile Execution</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-sm">Code Quality Assurance</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-sm">Scaling Teams & Systems</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-sm">Financial Planning</span>
+                        <span class="px-3 py-1 bg-red-100 text-red-600 rounded-full text-sm">Culture Development</span>
+                        <span class="px-3 py-1 bg-red-100 text-red-600 rounded-full text-sm">Operational Efficiency</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-12 section-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Professional Experience</h2>
+            
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-blue-200"></div>
+                
+                <!-- Experience items -->
+                <div class="space-y-8">
+                    <div class="relative">
+                        <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-600 rounded-full"></div>
+                        <div class="ml-auto w-5/12 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Head of Engineering</h3>
+                                    <p class="text-sm text-gray-600">Get Blys Pty Ltd, Sydney</p>
+                                </div>
+                                <span class="text-sm text-gray-500">12/2022 - 02/2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-600 rounded-full"></div>
+                        <div class="w-5/12 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Engineering Manager</h3>
+                                    <p class="text-sm text-gray-600">Get Blys Pty Ltd, Sydney</p>
+                                </div>
+                                <span class="text-sm text-gray-500">01/2022 - 12/2022</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-600 rounded-full"></div>
+                        <div class="ml-auto w-5/12 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Lead Software Engineer</h3>
+                                    <p class="text-sm text-gray-600">Get Blys Pty Ltd, Sydney</p>
+                                </div>
+                                <span class="text-sm text-gray-500">02/2021 - 12/2021</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-600 rounded-full"></div>
+                        <div class="w-5/12 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Principal Software Engineer</h3>
+                                    <p class="text-sm text-gray-600">Evolve Pvt Ltd, Kathmandu</p>
+                                </div>
+                                <span class="text-sm text-gray-500">03/2020 - 02/2021</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-600 rounded-full"></div>
+                        <div class="ml-auto w-5/12 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Senior Software Engineer</h3>
+                                    <p class="text-sm text-gray-600">Evolve Pvt Ltd, Kathmandu</p>
+                                </div>
+                                <span class="text-sm text-gray-500">03/2018 - 02/2020</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-600 rounded-full"></div>
+                        <div class="w-5/12 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Software Engineer</h3>
+                                    <p class="text-sm text-gray-600">Evolve Pvt Ltd, Kathmandu</p>
+                                </div>
+                                <span class="text-sm text-gray-500">02/2016 - 02/2018</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blogs Section -->
+    <section id="blogs" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Latest Blog Posts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="https://bibekshah09.medium.com/software-engineering-beyond-the-code-team-leadership-business-management-and-more-e5ffd9f1d6b4" target="_blank" class="block bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="aspect-w-16 aspect-h-9">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80" alt="Software Engineering Beyond the Code" class="object-cover w-full h-full">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>January 3, 2025</span>
+                            <span class="mx-2">•</span>
+                            <span>Leadership</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Leadership and Management Considerations in Software Engineering</h3>
+                        <p class="text-gray-600 mb-4">My take on leadership and team management in software engineering. Over my experience, and my observation while working with 100s of developers, designers, managers, I've gathered insights on what makes engineering teams truly successful.</p>
+                        <span class="text-blue-600 hover:text-blue-800 font-medium">Read more →</span>
+                    </div>
+                </a>
+                <a href="https://blog.devgenius.io/microservice-architecture-communication-design-patterns-70b37beec294" target="_blank" class="block bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="aspect-w-16 aspect-h-9">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80" alt="Microservice Architecture" class="object-cover w-full h-full">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>November 13, 2020</span>
+                            <span class="mx-2">•</span>
+                            <span>Architecture</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Software Design for Scale: Microservice architecture</h3>
+                        <p class="text-gray-600 mb-4">As your application starts to get bigger, the design of microservices becomes crucial. At a strategic level, microservices come with the challenge of handling inter-process communication, workflow management, and data storage mechanisms.</p>
+                        <span class="text-blue-600 hover:text-blue-800 font-medium">Read more →</span>
+                    </div>
+                </a>
+                <a href="https://bibekshah09.medium.com/designing-software-in-a-complex-domain-domain-driven-design-10604ad08d12" target="_blank" class="block bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="aspect-w-16 aspect-h-9">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80" alt="Domain-Driven Design" class="object-cover w-full h-full">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>March 8, 2022</span>
+                            <span class="mx-2">•</span>
+                            <span>Architecture</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Domain-Driven Design: Aligning Software with Business Reality</h3>
+                        <p class="text-gray-600 mb-4">Is your software system designed to align with your business reality? Learn how Domain-Driven Design ensures your software product caters to the actual needs of your business through strategic and tactical implementation.</p>
+                        <span class="text-blue-600 hover:text-blue-800 font-medium">Read more →</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Client Testimonials & Recommendations</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Don't just take my word for it. See what clients and colleagues have to say about working with me.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md">
+                    <div class="flex items-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                            <i class="fas fa-quote-left text-blue-600 text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700 italic text-lg leading-relaxed">"I highly recommend Bibek to anyone looking for a world-class engineering leader!"</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md">
+                    <div class="flex items-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                            <i class="fas fa-quote-left text-blue-600 text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700 italic text-lg leading-relaxed">"I highly recommend Bibek—his contributions and character would be an asset to any team."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="https://www.linkedin.com/in/bibek-shah/recommendations/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                    <span>View more recommendations on LinkedIn</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Let's Work Together</h2>
+                <p class="text-gray-600 mb-8">Feeling Stuck? Let's find out what works for you.</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="https://calendly.com/bibekshah/meeting-with-bibek?month=2025-04" target="_blank" class="inline-flex items-center justify-center bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
+                        <i class="far fa-calendar-alt mr-2"></i> Schedule Free Consultation
+                    </a>
+                    <a href="mailto:bibekshah09@gmail.com" class="inline-flex items-center justify-center bg-white text-blue-600 border border-blue-600 px-6 py-2.5 rounded-lg hover:bg-blue-50 transition-colors text-sm font-medium">
+                        <i class="far fa-envelope mr-2"></i> Email
+                    </a>
+                    <a href="https://www.linkedin.com/in/bibek-shah/" target="_blank" class="inline-flex items-center justify-center bg-white text-blue-600 border border-blue-600 px-6 py-2.5 rounded-lg hover:bg-blue-50 transition-colors text-sm font-medium">
+                        <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Bibek Shah</h3>
+                    <p class="text-gray-400">Product Development Software Consultant</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white">Services</a></li>
+                        <li><a href="#experience" class="text-gray-400 hover:text-white">Experience</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/bibek-shah/" target="_blank" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin fa-lg"></i>
+                        </a>
+                        <a href="https://bibekshah09.medium.com" target="_blank" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-medium fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>bibekshah09@gmail.com</li>
+                        <li>+977-9766552811</li>
+                        <li>Kathmandu, Nepal</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2024 Bibek Shah. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll reveal animation
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.card-hover');
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                if(position.top < window.innerHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Timeline animation
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html> 
