@@ -6,17 +6,92 @@
     <title>Bibek Shah - Product Development Software Consultant</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Custom Fonts -->
     <style>
+        /* Font face declarations for Suisse Int'l and Inter */
+        @font-face {
+            font-family: 'Suisse Int\'l';
+            src: url('https://fonts.cdnfonts.com/css/suisse-int-l') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Suisse Int\'l';
+            src: url('https://fonts.cdnfonts.com/css/suisse-int-l') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Suisse Int\'l';
+            src: url('https://fonts.cdnfonts.com/css/suisse-int-l') format('woff2');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Suisse Int\'l';
+            src: url('https://fonts.cdnfonts.com/css/suisse-int-l') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('https://fonts.cdnfonts.com/css/inter') format('woff2');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('https://fonts.cdnfonts.com/css/inter') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('https://fonts.cdnfonts.com/css/inter') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('https://fonts.cdnfonts.com/css/inter') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        /* Font family definitions */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Suisse Int\'l', sans-serif;
+        }
         .gradient-text {
             background: linear-gradient(45deg, #3B82F6, #10B981);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .card-hover {
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
         .card-hover:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         .section-bg {
             background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
@@ -43,16 +118,159 @@
         .text-red-600 {
             color: #dc2626;
         }
+        /* New animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .icon-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        .gradient-border {
+            position: relative;
+            border-radius: 0.5rem;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(45deg, #3B82F6, #10B981) border-box;
+            border: 2px solid transparent;
+        }
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* New animation classes for sections */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .reveal-rotate {
+            opacity: 0;
+            transform: rotate(-5deg) scale(0.95);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-rotate.visible {
+            opacity: 1;
+            transform: rotate(0) scale(1);
+        }
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .stagger-children.visible > *:nth-child(1) { transition-delay: 0.1s; }
+        .stagger-children.visible > *:nth-child(2) { transition-delay: 0.2s; }
+        .stagger-children.visible > *:nth-child(3) { transition-delay: 0.3s; }
+        .stagger-children.visible > *:nth-child(4) { transition-delay: 0.4s; }
+        .stagger-children.visible > *:nth-child(5) { transition-delay: 0.5s; }
+        .stagger-children.visible > *:nth-child(6) { transition-delay: 0.6s; }
+        .stagger-children.visible > *:nth-child(7) { transition-delay: 0.7s; }
+        .stagger-children.visible > *:nth-child(8) { transition-delay: 0.8s; }
+        .stagger-children.visible > *:nth-child(9) { transition-delay: 0.9s; }
+        .stagger-children.visible > *:nth-child(10) { transition-delay: 1s; }
+        .stagger-children.visible > *:nth-child(11) { transition-delay: 1.1s; }
+        .stagger-children.visible > *:nth-child(12) { transition-delay: 1.2s; }
+        .stagger-children.visible > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed w-full z-10">
+    <nav class="bg-white shadow-lg fixed w-full z-10 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0">
                     <div class="flex items-center">
-                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-2">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-2 icon-pulse">
                             <i class="fas fa-code text-blue-600 text-xl"></i>
                         </div>
                         <h1 class="text-xl font-bold gradient-text">Bibek Shah</h1>
@@ -60,12 +278,27 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#about" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md transition-colors">About</a>
-                        <a href="#services" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md transition-colors">Key Achievements</a>
-                        <a href="#expertise" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md transition-colors">Expertise</a>
-                        <a href="#experience" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md transition-colors">Experience</a>
-                        <a href="#blogs" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md transition-colors">Blogs</a>
-                        <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">Contact</a>
+                        <a href="#about" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md transition-colors relative group">
+                            <span>About</span>
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#services" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md transition-colors relative group">
+                            <span>Key Achievements</span>
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#expertise" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md transition-colors relative group">
+                            <span>Expertise</span>
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#experience" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md transition-colors relative group">
+                            <span>Experience</span>
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#blogs" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md transition-colors relative group">
+                            <span>Blogs</span>
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#consultation" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all duration-300 hover:shadow-lg">Contact</a>
                     </div>
                 </div>
             </div>
@@ -73,30 +306,49 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="pt-40 pb-20 section-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="pt-40 pb-20 section-bg relative overflow-hidden" data-aos="fade-down" data-aos-duration="1000">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full filter blur-3xl opacity-20 -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 right-0 w-72 h-72 bg-green-100 rounded-full filter blur-3xl opacity-20 translate-x-1/2 translate-y-1/2"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center">
-                <h1 class="text-5xl font-bold text-gray-900 sm:text-6xl md:text-7xl mb-6">
+                <h1 class="text-5xl font-bold text-gray-900 sm:text-6xl md:text-7xl mb-6 fade-in">
                     Bibek Shah
                 </h1>
-                <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-600 sm:mt-5 sm:text-2xl">
-                    Product Development | Software Architecture | Consultation
-                </p>
-                <div class="mt-6 text-gray-600">
-                    <p class="flex items-center justify-center space-x-4">
-                        <span class="flex items-center">
+                <div class="inline-flex flex-wrap justify-center gap-4 mb-4 slide-in-left">
+                    <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                        <i class="fas fa-star mr-2"></i>
+                        Product Development
+                    </span>
+                    <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                        <i class="fas fa-code mr-2"></i>
+                        Software Engineer
+                    </span>
+                    <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                        <i class="fas fa-sitemap mr-2"></i>
+                        Software Architecture
+                    </span>
+                    <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                        <i class="fas fa-comments mr-2"></i>
+                        Consultation
+                    </span>
+                </div>
+                <div class="mt-6 text-gray-600 slide-in-right">
+                    <p class="flex items-center justify-center space-x-4 flex-wrap">
+                        <span class="flex items-center hover-glow p-2 rounded-lg transition-all duration-300">
                             <i class="fas fa-map-marker-alt mr-2 text-blue-600"></i>
                             Kathmandu, Nepal
                         </span>
-                        <span class="flex items-center">
+                        <span class="flex items-center hover-glow p-2 rounded-lg transition-all duration-300">
                             <i class="fas fa-envelope mr-2 text-blue-600"></i>
                             <a href="mailto:bibekshah09@gmail.com" class="text-blue-600 hover:text-blue-800">bibekshah09@gmail.com</a>
                         </span>
-                        <span class="flex items-center">
+                        <span class="flex items-center hover-glow p-2 rounded-lg transition-all duration-300">
                             <i class="fab fa-whatsapp mr-2 text-green-600"></i>
-                            <a href="https://wa.me/9779766552811" target="_blank" class="text-blue-600 hover:text-blue-800">+977-9766552811</a>
+                            <a href="https://wa.me/9779841412761" target="_blank" class="text-blue-600 hover:text-blue-800">+977-9841412761</a>
                         </span>
-                        <span class="flex items-center">
+                        <span class="flex items-center hover-glow p-2 rounded-lg transition-all duration-300">
                             <i class="fab fa-linkedin mr-2 text-blue-600"></i>
                             <a href="https://www.linkedin.com/in/bibek-shah/" target="_blank" class="text-blue-600 hover:text-blue-800">LinkedIn</a>
                         </span>
@@ -107,110 +359,190 @@
     </header>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
+    <section id="about" class="py-20 bg-white" data-aos="fade-up" data-aos-duration="1000">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="order-2 lg:order-1">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">About Me</h2>
-                    <p class="text-gray-600 leading-relaxed mb-6">
+                    <div class="inline-block mb-4" data-aos="fade-right" data-aos-delay="200">
+                        <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                            <i class="fas fa-user-tie mr-2"></i>
+                            About Me
+                        </span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6 slide-in-left" data-aos="fade-up" data-aos-delay="300">
                         A seasoned software professional with 10+ years of experience in developing and scaling global software products. Expert in strategic planning, execution, delivery, research, creating and operating high performing teams.
                     </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h3 class="font-semibold text-gray-900">Engineering Leadership</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 stagger-children">
+                        <div class="bg-gray-50 p-4 rounded-lg hover-glow transition-all duration-300">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-users text-blue-600"></i>
+                                </div>
+                                <h3 class="font-semibold text-gray-900 font-inter">Engineering Leadership</h3>
+                            </div>
                         </div>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h3 class="font-semibold text-gray-900">Software System Architecture</h3>
+                        <div class="bg-gray-50 p-4 rounded-lg hover-glow transition-all duration-300">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-sitemap text-blue-600"></i>
+                                </div>
+                                <h3 class="font-semibold text-gray-900 font-inter">Software System Architecture</h3>
+                            </div>
                         </div>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h3 class="font-semibold text-gray-900">Team & Talent Strategy</h3>
+                        <div class="bg-gray-50 p-4 rounded-lg hover-glow transition-all duration-300">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-user-graduate text-blue-600"></i>
+                                </div>
+                                <h3 class="font-semibold text-gray-900 font-inter">Team & Talent Strategy</h3>
+                            </div>
                         </div>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h3 class="font-semibold text-gray-900">Project Management</h3>
+                        <div class="bg-gray-50 p-4 rounded-lg hover-glow transition-all duration-300">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-tasks text-blue-600"></i>
+                                </div>
+                                <h3 class="font-semibold text-gray-900 font-inter">Project Management</h3>
+                            </div>
                         </div>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h3 class="font-semibold text-gray-900">Research & Development</h3>
+                        <div class="bg-gray-50 p-4 rounded-lg hover-glow transition-all duration-300">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-flask text-blue-600"></i>
+                                </div>
+                                <h3 class="font-semibold text-gray-900 font-inter">Research & Development</h3>
+                            </div>
                         </div>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h3 class="font-semibold text-gray-900">Vision & Business Alignment</h3>
+                        <div class="bg-gray-50 p-4 rounded-lg hover-glow transition-all duration-300">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-bullseye text-blue-600"></i>
+                                </div>
+                                <h3 class="font-semibold text-gray-900 font-inter">Vision & Business Alignment</h3>
+                            </div>
                         </div>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h3 class="font-semibold text-gray-900">Product Development and Delivery</h3>
+                        <div class="bg-gray-50 p-4 rounded-lg hover-glow transition-all duration-300">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-rocket text-blue-600"></i>
+                                </div>
+                                <h3 class="font-semibold text-gray-900 font-inter">Product Development and Delivery</h3>
+                            </div>
                         </div>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h3 class="font-semibold text-gray-900">Scalability & Performance</h3>
+                        <div class="bg-gray-50 p-4 rounded-lg hover-glow transition-all duration-300">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-chart-line text-blue-600"></i>
+                                </div>
+                                <h3 class="font-semibold text-gray-900 font-inter">Scalability & Performance</h3>
+                            </div>
                         </div>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h3 class="font-semibold text-gray-900">Security & Compliance</h3>
+                        <div class="bg-gray-50 p-4 rounded-lg hover-glow transition-all duration-300">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-shield-alt text-blue-600"></i>
+                                </div>
+                                <h3 class="font-semibold text-gray-900 font-inter">Security & Compliance</h3>
+                            </div>
                         </div>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h3 class="font-semibold text-gray-900">Customer Experience & Engagement</h3>
+                        <div class="bg-gray-50 p-4 rounded-lg hover-glow transition-all duration-300">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-smile text-blue-600"></i>
+                                </div>
+                                <h3 class="font-semibold text-gray-900 font-inter">Customer Experience & Engagement</h3>
+                            </div>
                         </div>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h3 class="font-semibold text-gray-900">Operation Optimization & Efficiency</h3>
+                        <div class="bg-gray-50 p-4 rounded-lg hover-glow transition-all duration-300">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-cogs text-blue-600"></i>
+                                </div>
+                                <h3 class="font-semibold text-gray-900 font-inter">Operation Optimization & Efficiency</h3>
+                            </div>
                         </div>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h3 class="font-semibold text-gray-900">Software Engineering & DevOps</h3>
+                        <div class="bg-gray-50 p-4 rounded-lg hover-glow transition-all duration-300">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-code text-blue-600"></i>
+                                </div>
+                                <h3 class="font-semibold text-gray-900 font-inter">Software Engineering & DevOps</h3>
+                            </div>
                         </div>
                     </div>
                     <div class="mt-6 grid grid-cols-2 gap-4">
-                        <div class="bg-blue-50 p-4 rounded-lg">
-                            <h3 class="font-semibold text-blue-900">Experience</h3>
-                            <p class="text-blue-600">10+ Years</p>
+                        <div class="bg-blue-50 p-4 rounded-lg hover-glow transition-all duration-300">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-clock text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-blue-900 font-inter">Experience</h3>
+                                    <p class="text-blue-600">10+ Years</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="bg-blue-50 p-4 rounded-lg">
-                            <h3 class="font-semibold text-blue-900">Projects</h3>
-                            <p class="text-blue-600">50+ Completed</p>
+                        <div class="bg-blue-50 p-4 rounded-lg hover-glow transition-all duration-300">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-project-diagram text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-blue-900 font-inter">Projects</h3>
+                                    <p class="text-blue-600">50+ Completed</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="relative order-1 lg:order-2">
-                    <div class="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden">
+                <div class="relative order-1 lg:order-2 flex items-center justify-center h-full">
+                    <div class="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden floating">
                         <img src="https://media.licdn.com/dms/image/v2/C5603AQGBaDwFF7hoMg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1663423779017?e=1749081600&v=beta&t=AkjVfuD7CQ_PF-cBXYw-Zt74R5rgMXQOHGRQjFaHXaE" alt="Bibek Shah" class="object-cover">
                     </div>
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-100 rounded-full filter blur-xl opacity-30"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 section-bg">
+    <section id="services" class="py-20 section-bg" data-aos="fade-up" data-aos-duration="1000">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Key Achievements</h2>
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center" data-aos="fade-up" data-aos-delay="200">Key Achievements</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover" data-aos="fade-up" data-aos-delay="300">
                     <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                         <i class="fas fa-chart-line text-blue-600 text-xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-3">Product Impact & Growth</h3>
-                    <p class="text-gray-600">Leveraged extensive experience in developing and scaling multiple large scale software products across diverse domains—including Finance, Sales, Supply Chain, Marketplaces, B2B, D2C, Logistics, and Billing—serving over 500K users and driving multimillion-dollar revenue growth.</p>
+                    <p class="text-gray-600 leading-relaxed font-light">Leveraged extensive experience in developing and scaling multiple large scale software products across diverse domains—including Finance, Sales, Supply Chain, Marketplaces, B2B, D2C, Logistics, and Billing—serving over 500K users and driving multimillion-dollar revenue growth.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover" data-aos="fade-up" data-aos-delay="400">
                     <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                         <i class="fas fa-users text-blue-600 text-xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-3">Talent & Team Building</h3>
-                    <p class="text-gray-600">With hands-on experience scaling teams from 1 to 50+ across multiple companies, I've successfully built and mentored cross-functional teams in Engineering, Design, HR, and Operations. I've conducted 500+ interviews, leading efforts in hiring, mentoring, and grooming talent.</p>
+                    <p class="text-gray-600 leading-relaxed font-light">With hands-on experience scaling teams from 1 to 50+ across multiple companies, I've successfully built and mentored cross-functional teams in Engineering, Design, HR, and Operations. I've conducted 500+ interviews, leading efforts in hiring, mentoring, and grooming talent.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover" data-aos="fade-up" data-aos-delay="500">
                     <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                         <i class="fas fa-project-diagram text-blue-600 text-xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-3">Expertise in Startups & Scale-Ups</h3>
-                    <p class="text-gray-600">Having worked extensively in both startups and scale-ups, I have navigated every stage of business growth—from coding to management. I specialize in fostering cross-department collaboration, working closely with teams across Sales, Marketing, Operations, and HR to deliver enterprise-grade solutions that drive scalable success.</p>
+                    <p class="text-gray-600 leading-relaxed font-light">Having worked extensively in both startups and scale-ups, I have navigated every stage of business growth—from coding to management. I specialize in fostering cross-department collaboration, working closely with teams across Sales, Marketing, Operations, and HR to deliver enterprise-grade solutions that drive scalable success.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Expertise Section -->
-    <section id="expertise" class="py-20 bg-white">
+    <section id="expertise" class="py-20 bg-white" data-aos="fade-up" data-aos-duration="1000">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Expertise</h2>
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center" data-aos="fade-up" data-aos-delay="200">Expertise</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Technical Expertise -->
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Technical Expertise</h3>
+                <div class="bg-white p-6 rounded-xl shadow-lg" data-aos="fade-right" data-aos-delay="300">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Technical Skills</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">JavaScript</span>
                         <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">NodeJS</span>
@@ -228,12 +560,16 @@
                         <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">RDBMS</span>
                         <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">NOSQL</span>
                         <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Big Query</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">MySQL</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">PGSQL</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Apache Kafka</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">GCP</span>
                     </div>
                 </div>
                 
                 <!-- Other Expertise -->
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Professional Expertise</h3>
+                <div class="bg-white p-6 rounded-xl shadow-lg" data-aos="fade-left" data-aos-delay="400">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Leadership & Strategic Skills</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Strategic Thinking</span>
                         <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Leadership</span>
@@ -256,90 +592,104 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-12 section-bg">
+    <section id="experience" class="py-20 section-bg" data-aos="fade-up" data-aos-duration="1000">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Professional Experience</h2>
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center" data-aos="fade-up" data-aos-delay="200">Professional Experience</h2>
             
             <div class="relative">
-                <!-- Timeline line -->
-                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-blue-200"></div>
-                
-                <!-- Experience items -->
-                <div class="space-y-8">
-                    <div class="relative">
-                        <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-600 rounded-full"></div>
-                        <div class="ml-auto w-5/12 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h3 class="text-lg font-semibold text-gray-900">Head of Engineering</h3>
-                                    <p class="text-sm text-gray-600">Get Blys Pty Ltd, Sydney</p>
-                                </div>
-                                <span class="text-sm text-gray-500">12/2022 - 02/2025</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-600 rounded-full"></div>
-                        <div class="w-5/12 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h3 class="text-lg font-semibold text-gray-900">Engineering Manager</h3>
-                                    <p class="text-sm text-gray-600">Get Blys Pty Ltd, Sydney</p>
-                                </div>
-                                <span class="text-sm text-gray-500">01/2022 - 12/2022</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-600 rounded-full"></div>
-                        <div class="ml-auto w-5/12 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h3 class="text-lg font-semibold text-gray-900">Lead Software Engineer</h3>
-                                    <p class="text-sm text-gray-600">Get Blys Pty Ltd, Sydney</p>
-                                </div>
-                                <span class="text-sm text-gray-500">02/2021 - 12/2021</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-600 rounded-full"></div>
-                        <div class="w-5/12 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h3 class="text-lg font-semibold text-gray-900">Principal Software Engineer</h3>
-                                    <p class="text-sm text-gray-600">Evolve Pvt Ltd, Kathmandu</p>
-                                </div>
-                                <span class="text-sm text-gray-500">03/2020 - 02/2021</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-600 rounded-full"></div>
-                        <div class="ml-auto w-5/12 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h3 class="text-lg font-semibold text-gray-900">Senior Software Engineer</h3>
-                                    <p class="text-sm text-gray-600">Evolve Pvt Ltd, Kathmandu</p>
-                                </div>
-                                <span class="text-sm text-gray-500">03/2018 - 02/2020</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-600 rounded-full"></div>
-                        <div class="w-5/12 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <div class="flex justify-between items-start">
-                                <div>
+                <!-- Career progression graph -->
+                <div class="grid grid-cols-1 gap-12">
+                    <!-- First Row: Evolve Pvt Ltd -->
+                    <div class="col-span-1" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8">
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 w-full md:w-64 scale-in">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4 group-hover:rotate-12 transition-transform duration-300">
+                                        <i class="fas fa-laptop-code text-green-600 text-xl"></i>
+                                    </div>
                                     <h3 class="text-lg font-semibold text-gray-900">Software Engineer</h3>
-                                    <p class="text-sm text-gray-600">Evolve Pvt Ltd, Kathmandu</p>
                                 </div>
-                                <span class="text-sm text-gray-500">02/2016 - 02/2018</span>
+                                <div class="text-center">
+                                    <p class="text-sm font-medium text-gray-700">Evolve Pvt Ltd</p>
+                                    <p class="text-xs text-gray-500">Kathmandu, Nepal</p>
+                                </div>
+                            </div>
+                            <div class="hidden md:block w-16 h-1 bg-gradient-to-r from-green-500 to-green-400 animate-pulse"></div>
+                            <div class="md:hidden w-1 h-16 bg-gradient-to-b from-green-500 to-green-400 animate-pulse"></div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 w-full md:w-64 scale-in">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4 group-hover:rotate-12 transition-transform duration-300">
+                                        <i class="fas fa-code-branch text-green-600 text-xl"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Senior Software Engineer</h3>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-sm font-medium text-gray-700">Evolve Pvt Ltd</p>
+                                    <p class="text-xs text-gray-500">Kathmandu, Nepal</p>
+                                </div>
+                            </div>
+                            <div class="hidden md:block w-16 h-1 bg-gradient-to-r from-green-400 to-blue-500 animate-pulse"></div>
+                            <div class="md:hidden w-1 h-16 bg-gradient-to-b from-green-400 to-blue-500 animate-pulse"></div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 w-full md:w-64 scale-in">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 group-hover:rotate-12 transition-transform duration-300">
+                                        <i class="fas fa-project-diagram text-blue-600 text-xl"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Principal Software Engineer</h3>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-sm font-medium text-gray-700">Evolve Pvt Ltd</p>
+                                    <p class="text-xs text-gray-500">Kathmandu, Nepal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Second Row: Get Blys Pty Ltd -->
+                    <div class="col-span-1" data-aos="fade-up" data-aos-delay="400">
+                        <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8 mt-8">
+                            <div class="hidden md:block w-64"></div>
+                            <div class="hidden md:block w-16 h-1 bg-gradient-to-r from-blue-500 to-blue-600 animate-pulse"></div>
+                            <div class="md:hidden w-1 h-16 bg-gradient-to-b from-blue-500 to-blue-600 animate-pulse"></div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 w-full md:w-64 scale-in">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mr-4 group-hover:rotate-12 transition-transform duration-300">
+                                        <i class="fas fa-users-cog text-indigo-600 text-xl"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Lead Software Engineer</h3>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-sm font-medium text-gray-700">Get Blys Pty Ltd</p>
+                                    <p class="text-xs text-gray-500">Sydney, Australia</p>
+                                </div>
+                            </div>
+                            <div class="hidden md:block w-16 h-1 bg-gradient-to-r from-indigo-600 to-indigo-700 animate-pulse"></div>
+                            <div class="md:hidden w-1 h-16 bg-gradient-to-b from-indigo-600 to-indigo-700 animate-pulse"></div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 w-full md:w-64 scale-in">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mr-4 group-hover:rotate-12 transition-transform duration-300">
+                                        <i class="fas fa-tasks text-indigo-600 text-xl"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Engineering Manager</h3>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-sm font-medium text-gray-700">Get Blys Pty Ltd</p>
+                                    <p class="text-xs text-gray-500">Sydney, Australia</p>
+                                </div>
+                            </div>
+                            <div class="hidden md:block w-16 h-1 bg-gradient-to-r from-indigo-600 to-indigo-700 animate-pulse"></div>
+                            <div class="md:hidden w-1 h-16 bg-gradient-to-b from-indigo-600 to-indigo-700 animate-pulse"></div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 w-full md:w-64 scale-in">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mr-4 group-hover:rotate-12 transition-transform duration-300">
+                                        <i class="fas fa-sitemap text-indigo-600 text-xl"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Head of Engineering</h3>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-sm font-medium text-gray-700">Get Blys Pty Ltd</p>
+                                    <p class="text-xs text-gray-500">Sydney, Australia</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -349,12 +699,13 @@
     </section>
 
     <!-- Blogs Section -->
-    <section id="blogs" class="py-20 bg-white">
+    <section id="blogs" class="py-20 bg-white" data-aos="fade-up" data-aos-duration="1000">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Latest Blog Posts</h2>
+            <h2 class="text-3xl font-bold text-gray-900 mb-4 text-center" data-aos="fade-up" data-aos-delay="200">Building with Vision and Excellence</h2>
+            <p class="text-gray-600 text-center max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="300">Explore my insights on software engineering, product, and leadership, where vision meets excellence execution in building impactful solutions.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <a href="https://bibekshah09.medium.com/software-engineering-beyond-the-code-team-leadership-business-management-and-more-e5ffd9f1d6b4" target="_blank" class="block bg-white rounded-xl shadow-lg overflow-hidden card-hover">
-                    <div class="aspect-w-16 aspect-h-9">
+                <a href="https://bibekshah09.medium.com/software-engineering-beyond-the-code-team-leadership-business-management-and-more-e5ffd9f1d6b4" target="_blank" class="block bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="aspect-w-16 aspect-h-9 h-48">
                         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80" alt="Software Engineering Beyond the Code" class="object-cover w-full h-full">
                     </div>
                     <div class="p-6">
@@ -368,8 +719,8 @@
                         <span class="text-blue-600 hover:text-blue-800 font-medium">Read more →</span>
                     </div>
                 </a>
-                <a href="https://blog.devgenius.io/microservice-architecture-communication-design-patterns-70b37beec294" target="_blank" class="block bg-white rounded-xl shadow-lg overflow-hidden card-hover">
-                    <div class="aspect-w-16 aspect-h-9">
+                <a href="https://blog.devgenius.io/microservice-architecture-communication-design-patterns-70b37beec294" target="_blank" class="block bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="500">
+                    <div class="aspect-w-16 aspect-h-9 h-48">
                         <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80" alt="Microservice Architecture" class="object-cover w-full h-full">
                     </div>
                     <div class="p-6">
@@ -383,8 +734,8 @@
                         <span class="text-blue-600 hover:text-blue-800 font-medium">Read more →</span>
                     </div>
                 </a>
-                <a href="https://bibekshah09.medium.com/designing-software-in-a-complex-domain-domain-driven-design-10604ad08d12" target="_blank" class="block bg-white rounded-xl shadow-lg overflow-hidden card-hover">
-                    <div class="aspect-w-16 aspect-h-9">
+                <a href="https://bibekshah09.medium.com/designing-software-in-a-complex-domain-domain-driven-design-10604ad08d12" target="_blank" class="block bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="600">
+                    <div class="aspect-w-16 aspect-h-9 h-48">
                         <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80" alt="Domain-Driven Design" class="object-cover w-full h-full">
                     </div>
                     <div class="p-6">
@@ -403,15 +754,15 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-white" data-aos="fade-up" data-aos-duration="1000">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-aos="fade-up" data-aos-delay="200">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Client Testimonials & Recommendations</h2>
                 <p class="text-gray-600 max-w-3xl mx-auto">Don't just take my word for it. See what clients and colleagues have to say about working with me.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md" data-aos="fade-right" data-aos-delay="300">
                     <div class="flex items-center">
                         <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
                             <i class="fas fa-quote-left text-blue-600 text-2xl"></i>
@@ -420,7 +771,7 @@
                     </div>
                 </div>
                 
-                <div class="bg-gray-50 p-8 rounded-xl shadow-md">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md" data-aos="fade-left" data-aos-delay="400">
                     <div class="flex items-center">
                         <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
                             <i class="fas fa-quote-left text-blue-600 text-2xl"></i>
@@ -430,8 +781,8 @@
                 </div>
             </div>
             
-            <div class="text-center mt-10">
-                <a href="https://www.linkedin.com/in/bibek-shah/recommendations/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+            <div class="text-center mt-10" data-aos="fade-up" data-aos-delay="500">
+                <a href="https://www.linkedin.com/in/bibek-shah/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
                     <span>View more recommendations on LinkedIn</span>
                     <i class="fas fa-arrow-right ml-2"></i>
                 </a>
@@ -440,9 +791,9 @@
     </section>
 
     <!-- Consultation Section -->
-    <section class="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
+    <section id="consultation" class="py-20 bg-gradient-to-r from-blue-50 to-indigo-50" data-aos="fade-up" data-aos-duration="1000">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto text-center">
+            <div class="max-w-3xl mx-auto text-center" data-aos="zoom-in" data-aos-delay="200">
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">Let's Work Together</h2>
                 <p class="text-gray-600 mb-8">Feeling Stuck? Let's find out what works for you.</p>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -461,49 +812,109 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-gray-900 text-white py-16" data-aos="fade-up" data-aos-duration="1000">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Bibek Shah</h3>
-                    <p class="text-gray-400">Product Development Software Consultant</p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#about" class="text-gray-400 hover:text-white">About</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white">Services</a></li>
-                        <li><a href="#experience" class="text-gray-400 hover:text-white">Experience</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
-                    <div class="flex space-x-4">
-                        <a href="https://www.linkedin.com/in/bibek-shah/" target="_blank" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-linkedin fa-lg"></i>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start mb-6">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-code text-white text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold">Bibek Shah</h4>
+                    </div>
+                    <p class="text-gray-400 mb-6">Software Development | Product Development | Leadership</p>
+                    <div class="flex space-x-4 justify-center md:justify-start">
+                        <a href="https://www.linkedin.com/in/bibek-shah/" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-300 hover:bg-blue-600 hover:text-white transition-all duration-300">
+                            <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="https://bibekshah09.medium.com" target="_blank" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-medium fa-lg"></i>
+                        <a href="https://bibekshah09.medium.com" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-300 hover:bg-gray-700 hover:text-white transition-all duration-300">
+                            <i class="fab fa-medium-m"></i>
+                        </a>
+                        <a href="https://github.com/bibekshah" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-300 hover:bg-gray-800 hover:text-white transition-all duration-300">
+                            <i class="fab fa-github"></i>
                         </a>
                     </div>
                 </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>bibekshah09@gmail.com</li>
-                        <li>+977-9766552811</li>
-                        <li>Kathmandu, Nepal</li>
+                
+                <div class="text-center md:text-left">
+                    <h4 class="text-lg font-semibold mb-6">
+                        Navigation
+                    </h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#about" class="text-gray-400 hover:text-white flex items-center justify-center md:justify-start transition-colors duration-300">
+                                <span>About</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#services" class="text-gray-400 hover:text-white flex items-center justify-center md:justify-start transition-colors duration-300">
+                                <span>Key Achievements</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#expertise" class="text-gray-400 hover:text-white flex items-center justify-center md:justify-start transition-colors duration-300">
+                                <span>Expertise</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#experience" class="text-gray-400 hover:text-white flex items-center justify-center md:justify-start transition-colors duration-300">
+                                <span>Experience</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#blogs" class="text-gray-400 hover:text-white flex items-center justify-center md:justify-start transition-colors duration-300">
+                                <span>Blogs</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="text-center md:text-left">
+                    <h4 class="text-lg font-semibold mb-6">
+                        Contact
+                    </h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="mailto:bibekshah09@gmail.com" class="text-gray-400 hover:text-white flex items-center justify-center md:justify-start group transition-colors duration-300">
+                                <i class="fas fa-envelope mr-3 text-blue-600 group-hover:scale-110 transition-transform duration-300"></i>
+                                <span>bibekshah09@gmail.com</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/9779841412761" target="_blank" class="text-gray-400 hover:text-white flex items-center justify-center md:justify-start group transition-colors duration-300">
+                                <i class="fab fa-whatsapp mr-3 text-green-500 group-hover:scale-110 transition-transform duration-300"></i>
+                                <span>+977-9841412761</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white flex items-center justify-center md:justify-start group transition-colors duration-300">
+                                <i class="fas fa-map-marker-alt mr-3 text-red-500 group-hover:scale-110 transition-transform duration-300"></i>
+                                <span>Kathmandu, Nepal</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>© 2024 Bibek Shah. All rights reserved.</p>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-center items-center">
+                    <p class="text-gray-400 text-sm text-center">© 2024 Bibek Shah. All rights reserved.</p>
+                </div>
             </div>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true,
+            offset: 100,
+            delay: 0
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -514,21 +925,35 @@
             });
         });
 
-        // Add scroll reveal animation
-        window.addEventListener('scroll', function() {
-            const elements = document.querySelectorAll('.card-hover');
-            elements.forEach(element => {
-                const position = element.getBoundingClientRect();
-                if(position.top < window.innerHeight - 100) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
+        // Navbar scroll effect
+        let lastScroll = 0;
+        const navbar = document.querySelector('nav');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                navbar.classList.remove('shadow-lg');
+                return;
+            }
+            
+            if (currentScroll > lastScroll) {
+                // Scrolling down
+                navbar.classList.add('shadow-lg');
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up
+                navbar.classList.add('shadow-lg');
+                navbar.style.transform = 'translateY(0)';
+            }
+            
+            lastScroll = currentScroll;
         });
 
-        // Timeline animation
+        // Intersection Observer for fade-in elements
         const observerOptions = {
-            threshold: 0.1
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -539,8 +964,37 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.timeline-item').forEach(item => {
-            observer.observe(item);
+        // Observe all elements with animation classes
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .reveal-up, .reveal-left, .reveal-right, .reveal-scale, .reveal-rotate, .stagger-children').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Add hover effect to skill cards
+        document.querySelectorAll('.hover-glow').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroSection = document.querySelector('header');
+            if (heroSection) {
+                heroSection.style.backgroundPositionY = scrolled * 0.5 + 'px';
+            }
+        });
+        
+        // Add stagger effect to grid items
+        document.querySelectorAll('.stagger-children').forEach(container => {
+            const items = container.children;
+            for (let i = 0; i < items.length; i++) {
+                items[i].style.transitionDelay = `${i * 0.1}s`;
+            }
         });
     </script>
 </body>
